@@ -4,6 +4,11 @@
   "title": "ChangeNOW Plugin",
   "description": "ChangeNOW plugin on Ark Desktop Wallet",
   "main": "src/index.js",
+  "keywords": [
+    "@arkecosystem",
+    "desktop-wallet",
+    "plugin"
+  ],
   "permissions": [
     "COMPONENTS",
     "HTTP",

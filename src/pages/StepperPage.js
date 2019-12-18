@@ -103,7 +103,7 @@ const {
   faSpinner, 
   faLongArrowAltDown, 
   faLongArrowAltUp, 
-  faSearch, faArrowRight, faCheck, faCheckCircle, faTimesCircle, faCircleNotch, faCircle, faExternalLinkAlt, faCopy } = walletApi.icons.icons;
+  faSearch, faArrowRight, faCheck, faCheckCircle, faTimesCircle, faCircleNotch, faCircle, faExternalLinkAlt, faCopy } = walletApi.fontAwesomeIcons;
 
 module.exports = {
   template: `
@@ -135,7 +135,7 @@ module.exports = {
                   <div style="${arrow}"></div>
                 </div>
                 <div style="${selectContainer} display: none;" ref="currencySelectFrom">
-                  <div style="${sreachIcon}"><font-awesome-icon :icon="faSearch" size="lg"/></div>
+                  <div style="${sreachIcon}"><FontAwesomeIcon :icon="faSearch" size="lg"/></div>
                   <input type="text" style="${searchInput}" ref="searchFrom" v-model="fromFilter">
                   <div style="${currencyListContainer}">
                     <ul v-if="isListFromOpen" style="${currencyList}">
@@ -169,7 +169,7 @@ module.exports = {
                         <div class="flex items-center">
                           Learn More
                           <div style="font-size: 6px; margin-left: 3px; padding-bottom: 2px;">
-                            <font-awesome-icon :icon="faExternalLinkAlt" size="lg"/>
+                            <FontAwesomeIcon :icon="faExternalLinkAlt" size="lg"/>
                           </div>
                         </div>
                       </a>
@@ -177,15 +177,15 @@ module.exports = {
                   </template>
                 </v-popover>
                 <div style="${toggleButton}" @click="toggleCurrancies">
-                  <font-awesome-icon :icon="upArrow" size="lg"/>
-                  <font-awesome-icon :icon="downArrow" size="lg"/>
+                  <FontAwesomeIcon :icon="upArrow" size="lg"/>
+                  <FontAwesomeIcon :icon="downArrow" size="lg"/>
                 </div>
               </div>
               <div style="${inputWrapper}">
                 <div style="${exchangeInputTitle}">You get</div>
                 <input type="text" disabled style="${input}" :value="isCounting ? '' : amountTo"/>
                 <span v-if="isCounting" style="${inputLoader}">
-                  <font-awesome-icon :icon="spinner" size="lg" rotation="180" spin/>
+                  <FontAwesomeIcon :icon="spinner" size="lg" rotation="180" spin/>
                 </span>
                 <div class="cursor-pointer" style="${exchangeInputSearch}" ref="toSearchBtn" @click="openSelectTo">
                   <img v-if="to" :src="to.image" style="${coinIcon}">
@@ -199,7 +199,7 @@ module.exports = {
                   <div style="${arrow}"></div>
                 </div>
                 <div style="${selectContainer} display: none;" ref="currencySelectTo">
-                  <div style="${sreachIcon}"><font-awesome-icon :icon="faSearch" size="lg"/></div>
+                  <div style="${sreachIcon}"><FontAwesomeIcon :icon="faSearch" size="lg"/></div>
                   <input type="text" style="${searchInput}" ref="searchTo" v-model="toFilter">
                   <div style="${currencyListContainer}">
                     <ul v-if="isListToOpen" style="${currencyList}">
@@ -243,7 +243,7 @@ module.exports = {
                   class="border border-solid focus:border-green border-gray-400" 
                   style="${addressInput}" 
                   :placeholder="recipientPlace"/>
-                  <div v-if="recipientWallet && isValidRecipient" style="${inputSuccesValid}"><font-awesome-icon  :icon="faCheck" size="lg"/></div>
+                  <div v-if="recipientWallet && isValidRecipient" style="${inputSuccesValid}"><FontAwesomeIcon  :icon="faCheck" size="lg"/></div>
               </div>
               <p v-if="recipientWallet && !isValidRecipient && !recipientFocus" 
                 class="text-xs" 
@@ -261,7 +261,7 @@ module.exports = {
                   class="border border-solid focus:border-green border-gray-400"
                   style="${addressInput}" 
                   :placeholder="exstraIdPalce"/>
-                  <div v-if="externalId && isValidExternalId" style="${inputSuccesValid}"><font-awesome-icon  :icon="faCheck" size="lg"/></div>
+                  <div v-if="externalId && isValidExternalId" style="${inputSuccesValid}"><FontAwesomeIcon  :icon="faCheck" size="lg"/></div>
               </div>
               <p v-if="externalId && !isValidExternalId && !externalIdFocus" 
                 class="text-xs" style="${inputError}">{{exstraIdValidError}}</p>
@@ -277,7 +277,7 @@ module.exports = {
                   style="${addressInput}"
                   class="border border-solid focus:border-green border-gray-400" 
                   :placeholder="refundPlace"/>
-                  <div v-if="refundWallet && isValidRefund" style="${inputSuccesValid}"><font-awesome-icon  :icon="faCheck" size="lg"/></div>
+                  <div v-if="refundWallet && isValidRefund" style="${inputSuccesValid}"><FontAwesomeIcon  :icon="faCheck" size="lg"/></div>
               </div>
               <p v-if="refundWallet && !isValidRefund && !refundFocus"
                 class="text-xs" style="${inputError}">This address is not valid</p>
@@ -308,7 +308,7 @@ module.exports = {
                 <span style="${confirmInfoSub}">{{sequence}}</span>
               </div>
               <div style="${confirmArrow}" class="md:block hidden">
-                <font-awesome-icon :icon="faArrowRight" size="lg"/>
+                <FontAwesomeIcon :icon="faArrowRight" size="lg"/>
               </div>
               <div style="${confirmInfoData}" class="md:pl-6">
                 <span style="${confirmInfoLabel}">You Get</span>
@@ -330,7 +330,7 @@ module.exports = {
           <div style="${confirmCheckboxWrapper}">
             <label style="${checkboxBody}" class="cursor-pointer">
               <input type="checkbox" v-model="confirm" style="${checkbox}">
-              <span v-if="confirm" style="${checkboxChecked}"><font-awesome-icon  :icon="faCheck" size="lg"/></span>
+              <span v-if="confirm" style="${checkboxChecked}"><FontAwesomeIcon  :icon="faCheck" size="lg"/></span>
             </label>
             <div style="confirmText">
               <span>I've read and agree to the ChangeNOW 
@@ -345,7 +345,7 @@ module.exports = {
             <button style="${stepButton} ${buttonWhite}" @click.prevent="switchToOneStep" :disabled="creating">Back</button>
           </div>
           <div  v-if="creating" style="${bigLoader}">
-            <font-awesome-icon :icon="faCircleNotch" size="lg" rotation="180" spin style="color: #3bee81;"/>
+            <FontAwesomeIcon :icon="faCircleNotch" size="lg" rotation="180" spin style="color: #3bee81;"/>
           </div>
         </div>
         <div v-if="currentStep === 3 && transaction" style="${stepContainer}">
@@ -386,20 +386,20 @@ module.exports = {
             </div>
             <div v-if="!isExchangeFinished" style="exchangeStatuses" class="flex items-center justify-center flex-col md:flex-row">
               <div style="height: 35px; border: 2px solid rgba(61,61,112,.04);" class="md:w-1/3 w-full mb-1 md:mx-1  flex items-center justify-center">
-                <font-awesome-icon v-if="confirmingStatus" :icon="faCheckCircle" size="lg" style="color: #3bee81;"/>
-                <font-awesome-icon v-else :icon="spinner" size="lg" rotation="180" spin style="color: #3bee81;"/>
+                <FontAwesomeIcon v-if="confirmingStatus" :icon="faCheckCircle" size="lg" style="color: #3bee81;"/>
+                <FontAwesomeIcon v-else :icon="spinner" size="lg" rotation="180" spin style="color: #3bee81;"/>
                 <span class="ml-2">{{confirmingStatus ? 'Deposit received' : 'Awaiting deposit'}}</span>
               </div>
               <div style="height: 35px; border: 2px solid rgba(61,61,112,.04);" class="md:w-1/3 w-full mb-1 md:mx-1  flex items-center justify-center">
-                <font-awesome-icon v-if="exchangingStatus" :icon="faCheckCircle" size="lg" style="color: #3bee81;"/>
-                <font-awesome-icon v-else-if="confirmingStatus" :icon="spinner" size="lg" rotation="180" spin style="color: #3bee81;"/>
-                <font-awesome-icon v-else :icon="faCircleNotch" size="lg" style="color: #E9E7EF;"/>
+                <FontAwesomeIcon v-if="exchangingStatus" :icon="faCheckCircle" size="lg" style="color: #3bee81;"/>
+                <FontAwesomeIcon v-else-if="confirmingStatus" :icon="spinner" size="lg" rotation="180" spin style="color: #3bee81;"/>
+                <FontAwesomeIcon v-else :icon="faCircleNotch" size="lg" style="color: #E9E7EF;"/>
                 <span class="ml-2">{{exchangingStatus ? 'Exchanged' : 'Exchanging'}}</span>
               </div>
               <div style="height: 35px; border: 2px solid rgba(61,61,112,.04);" class="md:w-1/3 w-full mb-1 md:mx-1 flex items-center justify-center">
-                <font-awesome-icon v-if="isExchangeFinishedSuccess" :icon="faCheckCircle" size="lg" style="color: #3bee81;"/>
-                <font-awesome-icon v-else-if="sendingStatus"  :icon="spinner" size="lg" rotation="180" spin style="color: #3bee81;"/>
-                <font-awesome-icon v-else :icon="faCircleNotch" size="lg" style="color: #E9E7EF;"/>
+                <FontAwesomeIcon v-if="isExchangeFinishedSuccess" :icon="faCheckCircle" size="lg" style="color: #3bee81;"/>
+                <FontAwesomeIcon v-else-if="sendingStatus"  :icon="spinner" size="lg" rotation="180" spin style="color: #3bee81;"/>
+                <FontAwesomeIcon v-else :icon="faCircleNotch" size="lg" style="color: #E9E7EF;"/>
                 <span class="ml-2">{{isExchangeFinishedSuccess ? 'Sent to your wallet' : 'Sending to your wallet'}}</span>
               </div>
             </div>
@@ -504,12 +504,6 @@ module.exports = {
       </div>
     </div>
   `,
-  components: {
-    'font-awesome-icon': walletApi.icons.component,
-    Loader: walletApi.components.Loader,
-    InputSelect: walletApi.components.Input.InputSelect,
-    ButtonClipboard: walletApi.components.Button.ButtonClipboard
-  },
   data () {
     return {
       faCheck: faCheck,

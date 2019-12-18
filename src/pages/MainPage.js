@@ -39,7 +39,7 @@ const {
 } = style;
 
 
-const { faArrowsAltV, faSpinner, faLongArrowAltDown, faLongArrowAltUp, faSearch, faExternalLinkAlt } = walletApi.icons.icons;
+const { faArrowsAltV, faSpinner, faLongArrowAltDown, faLongArrowAltUp, faSearch, faExternalLinkAlt } = walletApi.fontAwesomeIcons;
 
 
 module.exports = {
@@ -84,7 +84,7 @@ module.exports = {
                 <div style="${arrow}"></div>
               </div>
               <div style="${selectContainer} display: none;" ref="currencySelectFrom">
-                <div style="${sreachIcon}"><font-awesome-icon :icon="faSearch" size="lg"/></div>
+                <div style="${sreachIcon}"><FontAwesomeIcon :icon="faSearch" size="lg"/></div>
                 
                 <input type="text" style="${searchInput}" ref="searchFrom" v-model="fromFilter">
                 <div style="${currencyListContainer}">
@@ -120,7 +120,7 @@ module.exports = {
                         <div class="flex items-center">
                           Learn More
                           <div style="font-size: 6px; margin-left: 3px; padding-bottom: 2px;">
-                            <font-awesome-icon :icon="faExternalLinkAlt" size="lg"/>
+                            <FontAwesomeIcon :icon="faExternalLinkAlt" size="lg"/>
                           </div>
                         </div>
                       </a>
@@ -128,15 +128,15 @@ module.exports = {
                 </template>
               </v-popover>
               <div style="${toggleButton}" @click="toggleCurrancies">
-                <font-awesome-icon :icon="upArrow" size="lg"/>
-                <font-awesome-icon :icon="downArrow" size="lg"/>
+                <FontAwesomeIcon :icon="upArrow" size="lg"/>
+                <FontAwesomeIcon :icon="downArrow" size="lg"/>
               </div>
             </div>
             <div style="${inputWrapper}">
               <div style="${exchangeInputTitle}">You get</div>
               <input type="text" disabled style="${input}" :value="isCounting ? '' : amountTo"/>
               <span v-if="isCounting" style="${inputLoader}">
-                <font-awesome-icon :icon="spinner" size="lg" rotation="180" spin/>
+                <FontAwesomeIcon :icon="spinner" size="lg" rotation="180" spin/>
               </span>
               <div class="cursor-pointer" style="${exchangeInputSearch}" ref="toSearchBtn" @click="openSelectTo">
                 <img v-if="to" :src="to.image" style="${coinIcon}">
@@ -150,7 +150,7 @@ module.exports = {
                 <div style="${arrow}"></div>
               </div>
               <div style="${selectContainer} display: none;" ref="currencySelectTo">
-              <div style="${sreachIcon}"><font-awesome-icon :icon="faSearch" size="lg"/></div>
+              <div style="${sreachIcon}"><FontAwesomeIcon :icon="faSearch" size="lg"/></div>
               <input type="text" style="${searchInput}" ref="searchTo" v-model="toFilter">
               <div style="${currencyListContainer}">
                 <ul v-if="isListToOpen" style="${currencyList}">
@@ -172,10 +172,6 @@ module.exports = {
       </div>
     </div>
   `,
-  components: {
-    'font-awesome-icon': walletApi.icons.component,
-    Loader: walletApi.components.Loader
-  },
   data () {
     return {
       spinner: faSpinner,
